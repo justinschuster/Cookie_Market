@@ -16,6 +16,12 @@ def index(request):
 def samoas(request):
     return render(request, 'samoas.html', {})
 
+def thin_mints(request):
+    return render(request, 'thin_mints.html', {})
+
+def tagalongs(request):
+    return render(request, 'tagalongs.html', {})
+
 def sign_up(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
