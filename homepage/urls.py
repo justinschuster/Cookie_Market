@@ -1,11 +1,12 @@
 # homepage/urls.py
 
-from django.urls import path 
-from homepage import views
+from django.conf.urls import include, url
+
+from homepage.views import index, samoas
 
 app_name = 'homepage'
 
 urlpatterns = [
-        path('', views.index, name='index'),
-        path('samoas/', views.samoas, name='samoas'),
+        url(r'^$', index, name='index'),
+        url(r'^samoas/$', samoas, name='samoas'),
 ]
