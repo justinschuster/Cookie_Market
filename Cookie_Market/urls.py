@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url, include
 from django.urls import path
+from django.contrib.auth import views as auth_views
 
 from homepage.views import index, samoas, sign_up
 
@@ -24,4 +25,6 @@ urlpatterns = [
     path('', index, name='index'),
     path('samoas/', samoas, name='samoas'),
     path('sign_up/', sign_up, name='sign_up'),
+    path('login/', auth_views.LoginView, name='login'),
+    path('logout/', auth_views.LogoutView, name='logout')
 ]
