@@ -31,8 +31,14 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#">Sell</a></li>
-					<li><a href="{% url 'sign_up' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					{% block user %}
+					{% if user.is_authenticated %}
+
+					{% else $}
+						<li><a href="{% url 'sign_up' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+						<li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					{% endif %}
+					{% endblock %}
 
 
 				</ul>
