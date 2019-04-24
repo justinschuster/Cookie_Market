@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.conf.urls import url, include
 from django.urls import path
 
-from homepage.views import index, samoas
+from homepage.views import index, samoas, sign_up
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('samoas/', samoas, name='samoas'),
+    path('sign_up/', sign_up, name='sign_up'),
 ]

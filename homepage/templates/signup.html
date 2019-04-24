@@ -21,30 +21,36 @@
 		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="{% url 'index' %}">Cookie Market</a>
+					<a class="navbar-brand" href="index.html">Cookie Market</a>
 				</div>
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="{% url 'index' %}">Home</a></li>
-					<li><a href="{% url 'samoas' %}">Samoas</a></li>
+					<li class="active"><a href="index.html">Home</a></li>
+					<li><a href="samoas.html">Samoas</a></li>
 					<li><a href="#">Thin Mints</a></li>
 					<li><a href="#">Tagalongs</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#">Sell</a></li>
-					<li><a href="{% url 'sign_up' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 				</ul>
 			</div>
 		</nav>
 
 		<div class="container">
-			<div class="jumbotron">
-				<h1>Cookie Market</h1>      
-				<p>The worst and only place on the web to buy and sell Girl Scout Cookies</p>
-			</div>
-			<p>This is some text.</p>      
-			<p>This is another text.</p>      
+			<h2>Sign Up</h2>
+			<form method="post">
+				<div class="form-group">
+					<label for="email">Email:</label>
+					<input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+				</div>
+				<div class="form-group">
+					<label for="pwd">Password:</label>
+					<input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+				</div>
+				<button type="submit" class="btn btn-default">Submit</button>
+			</form>
 		</div>
 
 	</body>
-</html> 
+</html>
