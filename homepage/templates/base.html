@@ -31,7 +31,7 @@
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">Sell</a></li>
+					<li><a href="{% url 'sell' %}">Sell</a></li>
 					
 					{% block account %}
 					{% if user.is_authenticated %}	

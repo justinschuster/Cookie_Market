@@ -18,7 +18,7 @@ from django.urls import path, include
 
 from django.contrib.auth import views as auth_views
 
-from homepage.views import index, samoas, thin_mints, tagalongs, sign_up
+from homepage.views import * 
 
 urlpatterns = [
     path('', index, name='index'),
@@ -28,4 +28,5 @@ urlpatterns = [
     path('tagalongs/', tagalongs, name='tagalongs'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('sign_up/', sign_up, name='sign_up'),
+    path('sell/', sell, name='sell'),
 ]

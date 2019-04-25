@@ -22,6 +22,9 @@ def thin_mints(request):
 def tagalongs(request):
     return render(request, 'tagalongs.html', {})
 
+def sell(request):
+    return render(request, 'sell.html', {})
+
 def sign_up(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
