@@ -1,7 +1,8 @@
 # homepage/models.py
 
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
+
 
 # Model for a Cookie Listing
 class Cookie(models.Model):
