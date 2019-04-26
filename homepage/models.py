@@ -1,7 +1,6 @@
 # homepage/models.py
 
 from django.db import models
-from django.forms import ModelForm
 from django.contrib.auth.models import User
 
 # Model for a Cookie Listing
@@ -15,8 +14,3 @@ class Cookie(models.Model):
 
     def __str__(self):
         return self.cookie_type
-
-class CookieForm(ModelForm):
-    class Meta:
-        model = Cookie
-        fields = ['cookie_type', 'seller', 'price', 'post_date']

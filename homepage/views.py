@@ -8,9 +8,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
-from .models import Cookie, CookieForm
-
-
+from .models import Cookie
+from .forms import CookieForm
 
 app_name = 'homepage'
 
