@@ -6,6 +6,6 @@ from .models import Cookie
 
 
 class CookieForm(ModelForm):
-    class Meta:
+   class Meta:
         model = Cookie
-        fields = ['cookie_type', 'seller', 'price', 'post_date']
+        fields = ['cookie_type', 'price']
