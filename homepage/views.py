@@ -27,8 +27,10 @@ def tagalongs(request):
 def sell(request): 
     if request.method == 'POST':
         form = CookieForm(request.POST) 
-        if form.is_valid():
-            form.save()
+        if form.is_valid(): 
+            obj = form.save(commit=False)
+            obj.user = request.user
+            obj.save()
             return redirect('index')
     else:
         form = CookieForm()
