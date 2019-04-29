@@ -1,11 +1,15 @@
 # homepage/forms.py
 
-from django.forms import ModelForm
+from django import forms
+from django.forms import ModelForm, Select
 
 from .models import Cookie
+from .choices import *
 
 
 class CookieForm(ModelForm):
-   class Meta:
+    cookie_type = forms.ChoiceField(choices=COOKIE_CHOICES, label='', widget=Select(), required=True)
+
+    class Meta:
         model = Cookie
         fields = ['cookie_type', 'price']
