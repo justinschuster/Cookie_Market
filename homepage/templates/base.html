@@ -30,11 +30,11 @@
 					<li><a href="{% url 'tagalongs' %}">Tagalongs</a></li>
 				</ul>
 
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="{% url 'sell' %}">Sell</a></li>
-					
+				<ul class="nav navbar-nav navbar-right">	
 					{% block account %}
 					{% if user.is_authenticated %}	
+						<li><a href="{% url 'sell' %}">Sell</a></li>
+
 						<li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-user"></span>Log Out</a></li>
 					{% else %}
 						<li><a href="{% url 'sign_up' %}"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
