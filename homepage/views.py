@@ -59,7 +59,10 @@ def buy(request, product_id):
             obj = form.save(commit=False)
             obj.buyer = request.user
             obj.product_id = cookie
+            obj.purchase_price = cookie.price
+            
             cookie.sold = True
+
             cookie.save()
             obj.save()
             return redirect('index')

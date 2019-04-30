@@ -9,7 +9,8 @@ from .choices import *
 
 # Model for a Cookie Listing
 class Cookie(models.Model):
-   
+    sold = models.BooleanField(default=False)
+
     cookie_id =  models.AutoField(primary_key=True)
 
     cookie_type = models.IntegerField(choices=COOKIE_CHOICES, default=1)
@@ -28,6 +29,8 @@ class BuyOrder(models.Model):
     product_id = models.ForeignKey(Cookie, on_delete=models.CASCADE, related_name='product_id', default=0)
 
     buyer = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    purchase_price = models.IntegerField(default=0)
 
 
 
