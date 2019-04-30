@@ -4,9 +4,30 @@
 <div class="container">
 	<h2>Samoas</h2>
 	<p>A tasty treat isn't all that's involved with a box of our caramel and toasted coconut-covered cookies. Through interaction with each customer and other Girl Scouts, a girl learns the importance of keeping her word, doing the right thing, and being fair.</p>
-	<img class="img-responsive" src="img/samoas.jpg" alt="Somoas" width="345" height="300"> 
 </div>
-{% endblock %}
 
+
+<div class="container">
+	<h1>Listings</h1>	
+	<table class="table">	
+		<thead>
+			<tr>
+				<th>Price</th>
+				<th>Seller</th>
+			</tr>	
+		</thead>
+		<tbody>
+
+			{% for cookie in listings %}
+			<tr>
+				<td>${{ cookie.price }}</td>
+				<td>{{ cookie.user }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+{% endblock %}
 
 

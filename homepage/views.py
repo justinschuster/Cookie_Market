@@ -15,8 +15,11 @@ app_name = 'homepage'
 def index(request):
     return render(request, 'index.html', {})
 
-def samoas(request):
-    return render(request, 'samoas.html', {})
+def samoas(request):    
+    listings = Cookie.objects.filter(cookie_type=1)
+    context = {'listings': listings}
+
+    return render(request, 'samoas.html', context)
 
 def thin_mints(request):
     return render(request, 'thin_mints.html', {})
