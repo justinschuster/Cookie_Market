@@ -22,17 +22,27 @@
 		<tbody>
 
 			{% for cookie in listings %}
+			{% if cookie.sold == False %}
 			<tr>
 				{% if cookie.cookie_type == 1 %}
-				<td>Samoas</td>
+					<td>Samoas</td>
 				{% elif cookie.cookie_type == 2 %}
-				<td>Tagalongs</td>
+					<td>Tagalongs</td>
 				{% else %}
-				<td>Thin Mints</td>
+					<td>Thin Mints</td>
 				{% endif %}
+
 				<td>${{ cookie.price }}</td>
 				<td>{{ cookie.user }}</td>
+
+				{% if user.is_authenticated %}
+					<td><a href="/buy/{{ cookie.cookie_id }}/">Buy</a></td>
+				{% else %}
+					<td>Log in to purchase these cookies</td>
+				{% endif %}
+
 			</tr>
+			{% endif %}
 			{% endfor %}
 		</tbody>
 	</table>
