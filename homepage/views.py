@@ -19,19 +19,19 @@ def index(request):
     return render(request, 'index.html', context)
 
 def samoas(request):    
-    listings = Cookie.objects.filter(cookie_type=1)
+    listings = Cookie.objects.filter(cookie_type=1).order_by('price')
     context = {'listings': listings}
 
     return render(request, 'samoas.html', context)
 
 def thin_mints(request):
-    listings = Cookie.objects.filter(cookie_type=2)
+    listings = Cookie.objects.filter(cookie_type=3).order_by('price')
     context = {'listings': listings}
 
     return render(request, 'thin_mints.html', context)
 
 def tagalongs(request):
-    listings = Cookie.objects.filter(cookie_type=3)
+    listings = Cookie.objects.filter(cookie_type=2).order_by('price')
     context = {'listings': listings}
 
 
@@ -58,7 +58,7 @@ def buy(request, product_id):
         if form.is_valid():
             obj = form.save(commit=False)
             obj.buyer = request.user
-            obj.product_id = cookie
+            obj.product = cookie
             obj.purchase_price = cookie.price
             
             cookie.sold = True
