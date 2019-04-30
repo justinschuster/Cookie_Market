@@ -5,4 +5,25 @@
 	<h2>Thin Mints</h2>
 	<p>round, mint-flavored cookies with a delicious chocolaty coating</p>
 </div>
+
+<div class="container">
+	<h1>Listing</h1>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Price</th>
+				<th>Seller</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for cookie in listings %}
+			<tr>
+				<td>${{ cookie.price }}</td>
+				<td>{{ cookie.user }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+
 {% endblock %}

@@ -22,7 +22,10 @@ def samoas(request):
     return render(request, 'samoas.html', context)
 
 def thin_mints(request):
-    return render(request, 'thin_mints.html', {})
+    listings = Cookie.objects.filter(cookie_type=2)
+    context = {'listings': listings}
+
+    return render(request, 'thin_mints.html', context)
 
 def tagalongs(request):
     return render(request, 'tagalongs.html', {})
