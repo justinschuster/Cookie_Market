@@ -6,7 +6,6 @@ from homepage.views import index, samoas
 
 app_name = 'homepage'
 
-urlpatterns = [
-        url(r'^$', index, name='index'),
-        url(r'^samoas/$', samoas, name='samoas'),
+urlpatterns += [
+    url(r'buy/(?P<product_id>[0-9]+)/', views.buy, name='buy'),
 ]

@@ -50,12 +50,15 @@ def sell(request):
 
     return render(request, 'sell.html', {'form': form})
 
-def buy(request):
+def buy(request, product_id):
+    cookie = Cookie.objects.filter(cookie_id=product_id).first()
+
     if request.method == 'POST':
-        form = BuyOrderForm(request.POST, cookie)
+        form = BuyOrderForm(request.POST)
         if form.is_valid():
             obj = form.save(commit=False)
             obj.buyer = request.user
+            obj.product_id = cookie
             obj.save()
             return redirect('index')
     else:

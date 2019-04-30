@@ -25,7 +25,7 @@ class Cookie(models.Model):
 class BuyOrder(models.Model):
     date_ordered = models.DateTimeField(default=timezone.now)
     
-    #cookie_id = models.ForeignKey(Cookie, blank=False, null=False, on_delete=models.CASCADE, related_name='cookie_id')
+    product_id = models.ForeignKey(Cookie, on_delete=models.CASCADE, related_name='product_id', default=0)
 
     buyer = models.ForeignKey(User, on_delete=models.CASCADE)
 

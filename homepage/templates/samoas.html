@@ -23,7 +23,7 @@
 				<td>${{ cookie.price }}</td>
 				<td>{{ cookie.user }}</td>
 				{% if user.is_authenticated %}
-				<td><a href="{% url 'buy' %}">Buy</a></td> 
+				<td><a href="/buy/{{ cookie.cookie_id }}/">Buy</a></td> 
 				{% else %}
 				<td>Log in to purchase these cookies</td>
 				{% endif %}
