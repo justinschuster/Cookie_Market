@@ -3,7 +3,7 @@
 from django import forms
 from django.forms import ModelForm, Select
 
-from .models import Cookie
+from .models import Cookie, BuyOrder
 from .choices import *
 
 
@@ -13,3 +13,9 @@ class CookieForm(ModelForm):
     class Meta:
         model = Cookie
         fields = ['cookie_type', 'price']
+    
+class BuyOrderForm(ModelForm):
+    class Meta:
+        model = BuyOrder
+        fields = ['date_ordered']
+

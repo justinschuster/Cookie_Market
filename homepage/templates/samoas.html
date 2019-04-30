@@ -22,6 +22,7 @@
 			<tr>
 				<td>${{ cookie.price }}</td>
 				<td>{{ cookie.user }}</td>
+				<td><a href="{% url 'buy' %}">Buy</a></td> 
 			</tr>
 			{% endfor %}
 		</tbody>

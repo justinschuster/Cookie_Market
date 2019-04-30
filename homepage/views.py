@@ -6,8 +6,8 @@ from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 from django.views.generic import TemplateView
 
-from .forms import CookieForm
-from .models import Cookie
+from .forms import CookieForm, BuyOrderForm
+from .models import Cookie, BuyOrder
 
 app_name = 'homepage'
 
@@ -47,6 +47,19 @@ def sell(request):
             return redirect('index')
     else:
         form = CookieForm()
+
+    return render(request, 'sell.html', {'form': form})
+
+def buy(request):
+    if request.method == 'POST':
+        form = BuyOrderForm(request.POST)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.buyer = request.user
+            obj.save()
+            return redirect('index')
+    else:
+        form = BuyOrderForm()
 
     return render(request, 'sell.html', {'form': form})
 
