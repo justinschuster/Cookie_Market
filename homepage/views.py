@@ -52,7 +52,7 @@ def sell(request):
 
 def buy(request):
     if request.method == 'POST':
-        form = BuyOrderForm(request.POST)
+        form = BuyOrderForm(request.POST, cookie)
         if form.is_valid():
             obj = form.save(commit=False)
             obj.buyer = request.user

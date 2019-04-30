@@ -15,6 +15,7 @@ class CookieForm(ModelForm):
         fields = ['cookie_type', 'price']
     
 class BuyOrderForm(ModelForm):
+
     class Meta:
         model = BuyOrder
         fields = ['date_ordered']
