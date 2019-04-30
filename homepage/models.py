@@ -2,6 +2,7 @@
 
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils import timezone
 
 from .choices import *
 
@@ -22,7 +23,7 @@ class Cookie(models.Model):
         return str(self.cookie_id)
         
 class BuyOrder(models.Model):
-    date_ordered = models.DateField()
+    date_ordered = models.DateTimeField(default=timezone.now)
     
     cookie_id = models.ForeignKey(Cookie, blank=False, null=False, on_delete=models.CASCADE)
 

@@ -61,7 +61,7 @@ def buy(request):
     else:
         form = BuyOrderForm()
 
-    return render(request, 'sell.html', {'form': form})
+    return render(request, 'buy.html', {'form': form})
 
 def sign_up(request):
     if request.method == 'POST':
