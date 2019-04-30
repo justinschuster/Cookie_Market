@@ -37,6 +37,14 @@ def tagalongs(request):
 
     return render(request, 'tagalongs.html', context)
 
+def thank_you(request, oid):
+    listing = BuyOrder.objects.filter(order_id=oid).first()
+
+    context = {'listing': listing}
+
+    return render(request, 'thank_you.html', context)
+
+
 def sell(request): 
     if request.method == 'POST':
         form = CookieForm(request.POST) 
@@ -66,7 +74,10 @@ def buy(request, product_id):
 
             cookie.save()
             obj.save()
-            return redirect('index')
+
+            rel_url = '/buy/' + str(obj.product_id) + '/thank_you/'
+
+            return redirect(rel_url)
     else:
         form = BuyOrderForm()
 

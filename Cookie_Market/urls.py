@@ -29,4 +29,5 @@ urlpatterns = [
     path('sign_up/', sign_up, name='sign_up'),
     path('sell/', sell, name='sell'),
     path('buy/<int:product_id>/', buy, name='buy'),
+    path('buy/<int:oid>/thank_you/', thank_you, name='thank_you'),
 ]
