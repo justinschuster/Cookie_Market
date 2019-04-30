@@ -60,6 +60,7 @@ def buy(request, product_id):
             obj.buyer = request.user
             obj.product = cookie
             obj.purchase_price = cookie.price
+            obj.seller = cookie.user
             
             cookie.sold = True
 

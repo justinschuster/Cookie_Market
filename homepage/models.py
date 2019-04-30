@@ -24,13 +24,15 @@ class Cookie(models.Model):
         return str(self.cookie_id)
         
 class BuyOrder(models.Model):
+    order_id = models.AutoField(primary_key=True)
+
     date_ordered = models.DateTimeField(default=timezone.now)
     
-    product_id = models.ForeignKey(Cookie, on_delete=models.CASCADE, related_name='product_id', default=0)
+    product = models.ForeignKey(Cookie, on_delete=models.CASCADE, related_name='product_id', default=0)
 
-    buyer = models.ForeignKey(User, on_delete=models.CASCADE)
+    buyer = models.ForeignKey(User, on_delete=models.CASCADE) 
 
-    purchase_price = models.IntegerField(default=0)
+    seller = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
 
 
 
