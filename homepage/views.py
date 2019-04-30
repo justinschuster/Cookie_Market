@@ -13,7 +13,10 @@ app_name = 'homepage'
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html', {})
+    listings = Cookie.objects.all().order_by('price')
+    context = {'listings': listings}
+
+    return render(request, 'index.html', context)
 
 def samoas(request):    
     listings = Cookie.objects.filter(cookie_type=1)
@@ -28,7 +31,11 @@ def thin_mints(request):
     return render(request, 'thin_mints.html', context)
 
 def tagalongs(request):
-    return render(request, 'tagalongs.html', {})
+    listings = Cookie.objects.filter(cookie_type=3)
+    context = {'listings': listings}
+
+
+    return render(request, 'tagalongs.html', context)
 
 def sell(request): 
     if request.method == 'POST':

@@ -7,10 +7,36 @@
 		<h1>Cookie Market</h1>      
 		<p>The worst and only place on the web to buy and sell Girl Scout Cookies</p>
 	</div>
-	<p>This is some text.</p>      
-	<p>This is another text.</p>      
 </div>
 
+<div class="container">
+	<h1>Cheapest Listings</h1>	
+	<table class="table">	
+		<thead>
+			<tr>
+				<th>Type</th>
+				<th>Price</th>
+				<th>Seller</th>
+			</tr>	
+		</thead>
+		<tbody>
+
+			{% for cookie in listings %}
+			<tr>
+				{% if cookie.cookie_type == 1 %}
+				<td>Samoas</td>
+				{% elif cookie.cookie_type == 2 %}
+				<td>Thin Mints</td>
+				{% else %}
+				<td>Tagalongs</td>
+				{% endif %}
+				<td>${{ cookie.price }}</td>
+				<td>{{ cookie.user }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
 {% endblock %}
 
 
